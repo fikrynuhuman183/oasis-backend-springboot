@@ -9,9 +9,6 @@ RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 # Copy Maven configuration files
 COPY pom.xml .
-COPY mvnw .
-COPY mvnw.cmd .
-COPY .mvn .mvn
 
 # Download dependencies (this layer will be cached unless pom.xml changes)
 RUN mvn dependency:go-offline -B
